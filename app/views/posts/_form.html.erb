@@ -1,0 +1,38 @@
+
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group ">
+
+   
+          
+  </div>
+
+  <div class="form-group">
+    <%= form.label :content %>
+    <%= form.text_area :content,class: 'form-control', rows: 15 %>
+    <br>
+  </div>
+  <div class="form-group">
+    <% if post.title.attached? %>
+    <%= image_tag post.title,style: "width: 200px; display: block" %>
+    <%end%>    
+    <%= form.label :title %>
+    <%= form.file_field :title,class: 'form-control' %>
+    <br>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Save",class: 'btn btn-primary'%>
+  </div>
+<% end %>
