@@ -1,0 +1,36 @@
+<%= form_with(model: danhmuc) do |form| %>
+  <% if danhmuc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(danhmuc.errors.count, "error") %> prohibited this danhmuc from being saved:</h2>
+
+      <ul>
+        <% danhmuc.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :tendanhmuc %>
+    <%= form.text_field :tendanhmuc %>
+  </div>
+
+  
+  <div class="form-group">
+    <% if danhmuc.anh.attached? %>
+    <%= image_tag danhmuc.anh,style: "width: 200px; display: block" %>
+    <%end%>    
+    <%= form.label :anh %>
+    <%= form.file_field :anh,class: 'form-control' %>
+    <br>
+  </div>
+  <div class="field">
+    <%= form.label :mota %>
+    <%= form.text_field :mota %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

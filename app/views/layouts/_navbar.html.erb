@@ -1,36 +1,45 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar scroll</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark  bg-success">
+    <%= link_to 'KTRE', '/', class: "nav-link ", style: "color: #fff"  %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to 'HOME', '/', class: "nav-link" %> <span class="sr-only">(current)</span>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Link
+       
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Cây cảnh
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Tin tức </a>
         </li>
+        <li class="nav-item active">
+        <a class="nav-link" href="#">About </a>
+      </li>
+       
       </ul>
-     
-          <a class="nav-link" href="#">Đăng ký</a>
-          <a class="nav-link" href="#">Đăng nhập</a>
-      </ul>
+      <form class="form-inline my-2 my-lg-0" action="/hhbytim" method="get">
+        <input class="form-control mr-sm-2" type="search" name="ndtim" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-dark my-2 my-sm-0" name="submit" type="submit">Search</button>
+      </form>    
+      <a class="nav-link"><%= link_to 'Đăng ký', new_user_path %></a>
+      <a class="nav-link"><%= link_to 'Đăng nhập', '/signin' %></a>
+      <% if session[:user_id] %>
+      <a class="nav-link"><%= link_to 'Đăng xuất', '/session/logout' %></a>
+      <% end %>
+      <a class="nav-link"><%= link_to 'Giỏ hàng', '/giohang' %></a>
     </div>
-  </div>
-</nav>
+  </nav>
+  <br><br><br>

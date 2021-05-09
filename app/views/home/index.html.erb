@@ -1,20 +1,126 @@
-<%= render 'layouts/navbar' %>
-    <div class="jumbotron">
-        <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </p>
-    </div>
-    <div class="row">
-        <% @posts.each do |post| %>
-            <div class="col-sm-4"> 
-                <%= image_tag post.title,style: "width: 200px; display: block" %>
-                <p><%= truncate(post.content, length: 150) %></p>
-                <%= link_to 'Read more', post_path(post)%>
+<html>
+<head>
+</head>
+<body style="background: #f5f5f5">
+    <%= render 'layouts/navbar' %>
+
+    <div class="container-fluid" >
+            <div class="container" >
+                <div class="row">
+                    <div class="col-sm-3 "style="background: #ffffff; padding: 10px  ">
+                        <h4 class="mt-3">Tiêu chí</h4>
+                        <div class="col-12 " style="background: #FFF;border: 1px solid #DCC">
+                            <ul class="mt-2 ml-2 list-group item-center">
+                                <li>Giá bán niêm yết <br><%= image_tag "giaban.jpg", style: "width: 40%;height: 30%" %></li>
+                                <li>Chất lượng đạt chuẩn <br><%= image_tag "chatluong.jpg", style: "width: 40%;height: 30%" %></li>
+                                <li>Giao hàng tại nhà <br><%= image_tag "giaohang.jpg", style: "width: 40%;height: 30%" %></li>
+                                <li>Bảo hành 12 tháng <br><%= image_tag "baohanh.jpg", style: "width: 40%;height: 30%" %></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 " style="background: #ffffff; padding: 10px ">
+                        <div id="carouselExampleIndicators" class="carousel slide mt-2" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <%= image_tag "https://vuoncayviet.com/data/aditems/93/vuon-cay-viet-banner-new.jpg", 
+                                class: "d-block" , style: "width: 100%;height: 400px" %>
+                            </div>
+                            <div class="carousel-item">
+                                <%= image_tag "https://vuoncayviet.com/data/aditems/93/vuon-cay-viet-banner-new.jpg", 
+                                class: "d-block" ,style: "width: 100%;height: 400px"%>
+                            </div>
+                            <div class="carousel-item">
+                                <%= image_tag "https://vuoncayviet.com/data/aditems/93/vuon-cay-viet-banner-new.jpg", 
+                                class: "d-block", style: "width: 100%;height: 400px" %>
+                            </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 text-center mt-3" style>
+                    
+                        <b>DANH MỤC TIÊU BIỂU</b>
+                        <hr>
+                    </div>
+                    <% @danhmucs.each do |danhmuc| %>
+                        <div class="col-sm-3 text-center " style="background: #FFF;border: 10px solid #f5f5f5"> 
+                            <%= image_tag danhmuc.anh,style: "width: 100%;height:300px; display: block;padding: 10px;margin-top: 10px" %>
+                            <p style="font-size: 18px"><b><%= danhmuc.tendanhmuc %></b></p>
+                            <%= link_to 'Chi tiết', '/bydanhmuc?id=1'%>
+                        </div>
+                        
+                    <%end%>
+                    <div class="col-sm-12 text-center mt-3">
+                    
+                        <b>SẢN PHẨM TIÊU BIỂU</b>
+                        <hr>
+                    </div>
+                    <% @hanghoas.each do |hanghoa| %>
+                        <div class="col-sm-3 text-center " style="background: #FFF;border: 10px solid #f5f5f5"> 
+                            <%= image_tag hanghoa.anh,style: "width: 100%;height:300px; display: block;padding: 10px;margin-top: 10px" %>
+                            <p style="font-size: 18px"><b><%= hanghoa.tensp %></b></p>
+                            <p style="font-size: 18px;float: left"><i><%= hanghoa.dongia %></i></p>
+                            <p style="float: right"><input class="btn btn-sm btn-danger "type="button" value="Mua"></p>
+                            <br>
+                            <p><%= link_to 'Read more', '/chitietsp?id='+hanghoa.id.to_s%></p>
+                        </div>
+                       
+                        
+                    <%end%>
+                </div>
             </div>
-            
-        <%end%>
+            <div class="container-fluid " style="background-color: #4F4F4F;color: #FFF;height: ">
+                <div class="row ">
+                    <div class="col-12">
+                        <table width="100%" class="table" style="color: #FFF">
+                            <tr>
+                                <th width="30%">Hỗ trợ khách hàng </th>
+                                <th width="30%">Về chúng tôi</th>
+                                <th width="30%">Kết nối với chúng tôi</th>
+                            </tr>
+                            <tr>
+                                <td><div style="color: #f00;font-size: 18px"><b>Hotline chăm sóc khách hàng: 0764607689</b></div>(Miễn phí)
+
+                                    <li>Hướng dẫn đặt hàng</li>
+                                    <li>Phương thức vận chuyển </li>
+                                    <li>Chính sách đổi trả</li>
+                                    <li>Hỗ trợ khách hàng: trantuxp34878@gmail.com</li>
+                                    <li>Báo lỗi bảo mật: trantuxp34878@gmail.com</li>
+                                </td>
+                                <td><li>Giới thiệu website</li>
+                                    <li>Chính sách bảo mật thanh toán</li>
+                                    <li>chính sách bảo mật thông tin cá nhân </li>
+                                    <li>Địa chỉ văn phòng: 26 Huỳnh Văn Nghệ, Hòa Quý, Ngũ Hành Sơn, Đà Nẵng.<br>
+                                    QTT Shop nhận đặt hàng trực tuyến và giao hàng tận nơi, chưa hỗ trợ mua và nhận hàng trực tiếp tại văn phòng hoặc trung tâm xử lý đơn hàng</li>		
+                                </td>
+                                <td>
+                                    <h3 >Theo dõi chúng tôi</h3>
+                                    Giữ liên lạc và kết nối với tất cả các tin tức và sự kiện.
+                                    <br><br>
+                                
+                                </td>
+                            
+                            </tr>
+                    
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+            <%=flash[:login_errors]%>
     </div>
+</body>
+</html>

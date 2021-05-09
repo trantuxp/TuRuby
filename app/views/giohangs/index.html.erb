@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Giohangs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Idsp</th>
+      <th>Iduser</th>
+      <th>Soluong</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @giohangs.each do |giohang| %>
+      <tr>
+        <td><%= giohang.idsp %></td>
+        <td><%= giohang.iduser %></td>
+        <td><%= giohang.soluong %></td>
+        <td><%= link_to 'Show', giohang %></td>
+        <td><%= link_to 'Edit', edit_giohang_path(giohang) %></td>
+        <td><%= link_to 'Destroy', giohang, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Giohang', new_giohang_path %>

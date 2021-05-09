@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  iduser: 1
+  loinhan: MyString
+  tongsp: 1
+  tongtien: MyString
+  trangthai: MyString
+
+two:
+  iduser: 1
+  loinhan: MyString
+  tongsp: 1
+  tongtien: MyString
+  trangthai: MyString

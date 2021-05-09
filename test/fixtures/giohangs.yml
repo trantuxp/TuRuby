@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idsp: 1
+  iduser: 1
+  soluong: 1
+
+two:
+  idsp: 1
+  iduser: 1
+  soluong: 1

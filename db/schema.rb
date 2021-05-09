@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_150446) do
+ActiveRecord::Schema.define(version: 2021_05_09_085514) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -40,9 +40,67 @@ ActiveRecord::Schema.define(version: 2021_04_29_150446) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "chitietdhs", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "iddonhang"
+    t.integer "idsp"
+    t.integer "soluong"
+    t.string "dongia"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "danhmucs", charset: "utf8mb4", force: :cascade do |t|
+    t.string "tendanhmuc"
+    t.text "anh"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "mota"
+  end
+
+  create_table "donhangs", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "iduser"
+    t.string "loinhan"
+    t.integer "tongsp"
+    t.string "tongtien"
+    t.string "trangthai"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "giohangs", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "idsp"
+    t.integer "iduser"
+    t.integer "soluong"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "hanghoas", charset: "utf8mb4", force: :cascade do |t|
+    t.string "tensp"
+    t.text "mota"
+    t.text "anh"
+    t.integer "soluong"
+    t.integer "dongia"
+    t.integer "iddanhmuc"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "posts", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+    t.string "tendn"
+    t.string "matkhau"
+    t.string "tenuser"
+    t.string "diachi"
+    t.string "sodt"
+    t.string "email"
+    t.string "vaitro"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

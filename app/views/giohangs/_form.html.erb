@@ -1,0 +1,32 @@
+<%= form_with(model: giohang) do |form| %>
+  <% if giohang.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(giohang.errors.count, "error") %> prohibited this giohang from being saved:</h2>
+
+      <ul>
+        <% giohang.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :idsp %>
+    <%= form.number_field :idsp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :iduser %>
+    <%= form.number_field :iduser %>
+  </div>
+
+  <div class="field">
+    <%= form.label :soluong %>
+    <%= form.number_field :soluong %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

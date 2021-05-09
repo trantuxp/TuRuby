@@ -1,0 +1,83 @@
+<html>
+  <head>
+  </head>
+  <body style="background: #f5f5f5">
+   
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 mb-3" style="background: #fff;height:60px; padding-top: 20px">
+                <smal>Trang chủ >> Cây cảnh >> Chi tiết sản phẩm </smal>
+                </div>
+                <div class="col-sm-12 bg-white ">
+                    <div class="row">
+                        <div class="col-sm-4 ">
+                            <div class="col-sm-12 col-sm-4 "  >
+                                <%= image_tag @hanghoasid.anh, style: "width: 100%;margin: 20px;border: 1px solid #DCC" %>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <h3><b><%= @hanghoasid.tensp %></b></h3>
+                            <p>NT058: 35 x 50cm </p>
+                            <p>Lưu ý: Giá sản phẩm đã bao gồm chậu.</p>
+                            <p>Tình trạng: Còn hàng</p>
+                            <p>Giá bán: <%= @hanghoasid.dongia %> đ</p>
+
+                            <form action="/add" method="get">
+                                <input type="hidden"  class="form-control " name="idsp" value="<%= @hanghoasid.id %>" style="width: 30%">
+                                <input type="hidden" class="form-control" name="iduser" value="<%=session[:user_id] %>">
+                                Số lượng: <input type="number" class="form-control" name="soluong" value="1"style="width: 30%;display: inline">
+                                <input type="submit" class="form-control btn-danger btn mt-2" name="submit" value="Mua ngay" style="width: 50%;display: block">
+                            </form>
+                        </div>
+                        <div class="col-sm-4" style="background: #fcfcfc; padding: 10px">
+                        <h4>VƯỜN CÂY VIỆT CAM KẾT: </h4>
+                        <small>Cung cấp các loại cây cảnh đa dạng với giá hợp lý<br>
+                        Miễn phí giao hàng cho đơn hàng trên 500.000đ (áp dụng tại các quận nội thành TP.HCM)<br>
+                        Tư vấn và hướng dẫn chăm sóc cây tận tình<br>
+                        Tư vấn kỹ lưỡng các vấn đề phong thuỷ, hợp mệnh - hợp tuổi<br>
+                        Cho thuê cây cảnh văn phòng<br>
+                        Hỗ trợ đổi trả sản phẩm trong vòng 3 ngày sau khi mua</smal><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 bg-white mt-3">
+                    <br><br>
+                    <h4>Chi tiết sản phẩm</h4>
+                    <hr>
+                    <p> Giới thiệu Cây hải đường  <br>
+                        Tên thường gọi: cây hoa hải đường  <br>
+                        Tên gọi khác: hải đường đỏ, hay cây hải đường  <br>
+                        Tên khoa học: Malus spectabilis Borkh   <br>
+                        Họ:  Theaceae  <br>
+                        Nguồn gốc xuất xứ: tại Trung Quốc  <br>
+                        Đặc điểm  <br>
+                        Thân: thuộc cây thân bụi cao 3 – 4m, cành non có màu nâu nhạt và nhẵn.  <br>
+                        Lá: có xuống ngắn, không lông phiến lá to thuôn hình bầu dục, dày màu nâu ở mặt trên, xanh ở mặt dưới, mép lá có răng cưa nhọn, gân chính nổi rõ.  <br>
+                        Hoa : có màu đỏ, cánh hoa gồm 8 – 12 cánh hình trứng rộng đỉnh tròn.  <br>
+                        Quả: hình cầu, nhẵn khí thành 3 rãnh 3 ô.  <br>
+                        Ý nghĩa phong thủy  <br>
+                        Là loại hoa quý, không chỉ đẹp với màu sắc thắm đỏ rực rỡ vào độ xuân sanng mà hoa hải
+                         đường còn giàu ý nghĩa ngay từ tên gọi. Theo tiếng Hán, chữ đường còn hàm ý nhà ngôi 
+                         nhà lớn vì vậy cây hoa hải đường là loài hoa phong thủy tượng trưng cho sự phú quý viên mãn, 
+                         cuộc sống sum vầy, anh em hòa hợp, tình bạn keo sơn gắn bó.  <br>
+                        Hải đường còn tượng trưng cho mùa xuân nên còn mang đến may mắn, làm ăn tấn tới.  <br>
+                        Công dụng  <br>
+                        Làm quà tặng nhân những dịp lễ tết quan trọng đặc biệt là năm mới hoặc mừng tân gia.  Người xưa quan niệm tặng tranh hoặc chậu hoa hải đường là lễ vật quý chúc gia chủ đầy ắp phú quý vinh hoa, thăng quan, tiến chức.  <br>
+                        Người ta còn thường mua một chậu hoa hải đường trưng phòng khách, phòng thờ, trước cửa nhà hoặc cắm lọ lục bình trên bàn thờ để đón xuân sang với mong muốn một năm đỏ đắn, sung túc.  <br>
+                        Cây hoa hải đường còn được trồng vườn, trồng bồn trước nhà tô điểm cho ngôi nhà thêm sinh động.  <br>
+                        Cách trồng  <br>
+                        Ánh sáng: Cây hoa hải đường ưa ánh sáng bán phần, nên trồng nơi có ánh sáng khuếch tán khoảng 50-60%. Cây trồng sau 3-4 năm sẽ cho nhiều hoa đẹp.  <br>
+                        Nhiệt độ: cây hoa hải đường ưa mát mẻ, nhiệt độ trung bình ưa thích khoảng 18-27oC.  <br>
+                        Độ ẩm: Cây ưa ẩm trung bình  <br>
+                        Đất trồng: Cây hoa hải đường ưa đất tơi xốp, thoáng, giàu dinh dưỡng, nên bón lót bằng phân hữu cơ để dự trữ dinh dưỡng nuôi cây.  <br>
+                        Tưới nước: cây ưa nước trung bình, lượng nước tưới vừa phải. Nên tưới khi thấy đất trên mặt chậu hơi se khô.  <br>
+                        Bón phân: khi cây trong giai đoạn trưởng thành từ còn nhỏ đến 1m, nên bón phân mỗi tháng/lần bằng nước bể phốt pha loãng với 3-4 phần nước lã.      <br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+  </body>
+</html>
+

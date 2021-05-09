@@ -1,0 +1,2 @@
+class Chitietdh < ApplicationRecord
+end

@@ -1,0 +1,73 @@
+<html>
+  <head>
+  </head>
+  <body style="background: #f5f5f5">
+   
+    <div class="container-fluid">
+      	<div class="container">
+			<div class="row">
+				<div class="col-12" style="background: #fff;height:60px; padding-top: 20px">
+					<smal>Trang chủ >> Giỏ hàng </smal>
+				</div>
+				<div class="col-12 mt-2 " style="background: #FFF">
+					<table class="table table-borderless mt-3">
+						<tr>
+							<td width="60%">
+								Sản phẩm
+							</td>
+							<td width="10%">
+								Đơn giá
+							</td >
+							<td width="10%">
+								Số lượng
+							</td>
+							
+							<td width="10%">
+								Số tiền
+							</td>
+							<td width="10%">
+								Thao tác
+							</td>
+						</tr>
+					</table>
+				</div>
+				<% @giohangss.each do |giohangss| %>
+				<div class="col-12 mt-2 border" style="background: #FFF;">
+					<form action="/fix" method="get" accept-charset="utf-8">
+						<table class="mt-3" width="100%">
+							<tr>
+								<td width="60%">
+								<% hanghoa = Hanghoa.find(giohangss.idsp) %>
+									
+										<%= image_tag hanghoa.anh, style: "width: 30%" %>
+										<%= hanghoa.tensp %>
+									
+								</td>
+								<td width="10%">
+									Đơn giá
+								</td >
+								<td width="10%">
+								<input type="number" name="soluong" value="<%= giohangss.soluong %>" class="form-control">
+								<input type="hidden" name="id" value="<%= giohangss.id %>" >
+								</td>
+								
+								<td width="10%">
+										<%= hanghoa.dongia*giohangss.soluong %>
+								</td>
+								<td width="">
+									<%= link_to 'xóa', '/delete?id='+giohangss.id.to_s%>
+								</td>
+							</tr>
+						</table>
+						<p style="float: right">
+							<input type="submit" name="submit" class="submit" value="sửa">
+						</p>
+					</form>
+				</div>
+				<% end %>
+					
+		</div>
+	</div>
+  </div>
+</body>
+</html>

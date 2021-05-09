@@ -1,0 +1,45 @@
+<html>
+  <head>
+  </head>
+  <body style="background: #f5f5f5">
+   
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-12" style="background: #fff;height:60px; padding-top: 20px">
+            <smal>Trang chủ >> Tìm kiếm </smal>
+          </div>
+          <div class="col-3">
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action bg-success active">
+                Tìm kiếm theo tên sản phẩm
+              </a>
+              <% @danhmucs.each do |danhmucs| %>
+              <a href="#" class="list-group-item list-group-item-action"><%= danhmucs.tendanhmuc %></a>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-9">
+            <h3 style="color: green"><b><p>Kết quả tìm kiếm cho từ khóa: <%= params[:ndtim] %> </p> </b></h3>
+            <hr style="border: 1px solid green">
+         
+            <div class="row">
+              <% @hanghoasbytim.each do |hanghoasbytim| %>
+                <div class="col-sm-4 text-center " style="background: #FFF;border: 10px solid #f5f5f5"> 
+                  <%= image_tag hanghoasbytim.anh,style: "width: 100%;height:300px; display: block;padding: 10px;margin-top: 10px" %>
+                  <p style="font-size: 18px"><b><%= hanghoasbytim.tensp %></b></p>
+                  <p style="font-size: 18px;float: left"><i><%= hanghoasbytim.dongia %></i></p>
+                  <p style="float: right"><input class="btn btn-sm btn-danger "type="button" value="Mua"></p>
+                  <br>
+                  <p><%= link_to 'Chi tiết', hanghoa_path(hanghoasbytim)%></p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

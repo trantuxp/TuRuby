@@ -1,0 +1,2 @@
+class DonhangController < ApplicationController
+end

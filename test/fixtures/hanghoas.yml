@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tensp: MyString
+  mota: MyText
+  anh: MyText
+  soluong: 1
+  dongia: MyString
+  iddanhmuc: 1
+
+two:
+  tensp: MyString
+  mota: MyText
+  anh: MyText
+  soluong: 1
+  dongia: MyString
+  iddanhmuc: 1

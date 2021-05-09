@@ -1,0 +1,2 @@
+class Giohang < ApplicationRecord
+end

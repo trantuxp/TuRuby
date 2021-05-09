@@ -1,0 +1,55 @@
+<%= form_with(model: hanghoa) do |form| %>
+  <% if hanghoa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hanghoa.errors.count, "error") %> prohibited this hanghoa from being saved:</h2>
+
+      <ul>
+        <% hanghoa.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :tensp %>
+    <%= form.text_field :tensp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mota %>
+    <%= form.text_area :mota %>
+  </div>
+
+  <div class="form-group">
+    <% if hanghoa.anh.attached? %>
+    <%= image_tag hanghoa.anh,style: "width: 200px; display: block" %>
+    <%end%>    
+    <%= form.label :anh %>
+    <%= form.file_field :anh,class: 'form-control' %>
+    <br>
+  </div>
+
+  <div class="field">
+    <%= form.label :soluong %>
+    <%= form.number_field :soluong %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dongia %>
+    <%= form.text_field :dongia %>
+  </div>
+
+  <div class="field">
+    <% hanghoas= Hanghoa.all %>
+    <%= form.label :iddanhmuc %>
+    <%= form.collection_select :iddanhmuc,  Danhmuc.all, :id, :tendanhmuc %>
+  </div>
+  <% @danhmucs = Danhmuc.all %>
+ 
+  
+    
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

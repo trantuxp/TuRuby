@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  iddonhang: 1
+  idsp: 1
+  soluong: 1
+  dongia: MyString
+
+two:
+  iddonhang: 1
+  idsp: 1
+  soluong: 1
+  dongia: MyString
